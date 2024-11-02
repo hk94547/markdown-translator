@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Markdown Translator</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked@3.0.7/marked.min.js"></script>
+    <style>
+        #markdown {
+            width: 100%;
+            height: 200px;
+        }
+        #preview {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 10px;
+            min-height: 200px;
+        }
+    </style></head>
+<body>
+    <textarea id="markdown" placeholder="Write your Markdown here..."></textarea>
+    <div id="preview"></div>
+
+    <script>
+        const textarea = document.getElementById('markdown');
+        const preview = document.getElementById('preview');
+
+        textarea.addEventListener('input', () => {
+            const markdownText = textarea.value;
+            preview.innerHTML = marked(markdownText);
+        });
+    </script>
+</body>
+</html>
